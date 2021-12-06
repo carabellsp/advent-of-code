@@ -14,9 +14,13 @@ def format_duration(seconds)
 
   total_time = [years_label, days_label, hours_label, minutes_label, seconds_label].compact
 
-  last_value = total_time.last
+  last_value = total_time.pop
 
-  total_time.join(', ') + " and #{last_value}"
+  if total_time.length >= 1
+    total_time.join(', ') + " and #{last_value}"
+  else
+    last_value
+  end
 end
 
 def unit_of_time_label(number, unit_of_time)
@@ -25,4 +29,4 @@ def unit_of_time_label(number, unit_of_time)
   "#{number} #{unit_of_time}#{'s' if number > 1}"
 end
 
-puts format_duration(364000)
+puts format_duration(62)
