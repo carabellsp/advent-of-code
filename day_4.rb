@@ -3,6 +3,7 @@
 def read_input
   file = File.open('inputs/day4.txt')
   file.each_line.map(&:strip).reject(&:empty?)
+  file.close
 end
 
 def cards
